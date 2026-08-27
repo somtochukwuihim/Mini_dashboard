@@ -1,0 +1,11 @@
+
+[
+    {"customer": "Acme", "status": "open", "priority": "high"},
+    {"customer": "Beta", "status": "closed", "priority": "low"},
+    {"customer": "Gamma", "status": "open", "priority": "medium"},
+    {"customer": "Acme", "status": "open", "priority": "high"},
+    {"customer": "Delta", "status": "closed", "priority": "high"},
+    {"customer": "Beta", "status": "open", "priority": "high"},
+    {"customer": "Gamma", "status": "open", "priority": "high"},
+    {"customer": "Acme", "status": "closed", "priority": "medium"}
+]
