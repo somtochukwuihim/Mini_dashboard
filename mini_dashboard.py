@@ -3,7 +3,7 @@ import os
 
 #////////CHANGES MADE-[Code n+1]//////////
 # i refactored the code to only read the json file once(Do not repeat yourself principle).
-# Then it passes it to the other function that needs it.
+# Then it passes it to the other functions that needs it.
 
 def count_open_tickets (tickets):
     open_count = 0
@@ -75,5 +75,5 @@ def print_dashboard (tickets=None):
 
 
 
-trial = print_dashboard ('C:/User/Somto/Python learning/Scripts/mini_dashboard_practice_file.json')
+trial = print_dashboard ('mini_dashboard_practice_file.json')
 print (trial)
