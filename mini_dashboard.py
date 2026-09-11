@@ -1,15 +1,14 @@
 import json
 import os
 
-#////////CHANGES MADE-[Code n+1]//////////
-# i refactored the code to only read the json file once(Do not repeat yourself principle).
-# Then it passes it to the other functions that needs it.
+#////////CHANGES MADE-[Code n+2]//////////
+# i made the code tie sensitive.
+# it can now return more than one customer if there is a tie
 
-def count_open_tickets (tickets):
+def count_open_tickets (tickets ):
     open_count = 0
     for ticket in tickets:
-        status = ticket['status']
-        if status == 'open':
+        if ticket['status'] == 'open':
             open_count +=1
     return open_count
             
@@ -32,7 +31,7 @@ def count_high_priority (tickets):
 def customer_with_most_open_ticket (tickets):
     most_open_ticket = {}
     highest_count  = 0
-    winner = ''
+    winner = []
     for ticket in tickets:
         customer = ticket['customer']
         status = ticket['status']
@@ -42,15 +41,19 @@ def customer_with_most_open_ticket (tickets):
     for customer, count in most_open_ticket.items():
         if count > highest_count:
             highest_count = count
-            winner = customer   
+            winner =[customer]
+            
+        elif count == highest_count:
+           winner.append(customer)
+    
+    winner = ', '.join(winner)            
     return winner, highest_count
 
 def print_dashboard (tickets=None):
     if tickets is None:
-        return 'Error: No file/file-path was provided to the function.'
-    # Wanted to try raise instead of return
+        return 'Error: No file/file-path was provided to the function.'    
     if not os.path.exists(tickets):
-        raise FileNotFoundError ('Error: File does not exist') 
+        raise FileNotFoundError ('Error: File does not exist')     
     if os.path.isdir(tickets):
         return 'File only points to a directory'
     
@@ -74,6 +77,7 @@ def print_dashboard (tickets=None):
         return 'Error: The file exists but does not contain valid JSON format.'
 
 
+        
 
 trial = print_dashboard ('mini_dashboard_practice_file.json')
 print (trial)
