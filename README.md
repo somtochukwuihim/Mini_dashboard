@@ -10,7 +10,7 @@ This project was created so as to demonstrate;
 1. build little processes that helps during troubleshooting.
 1. show my ability to write scripts and make them more efficient by finding and removing bugs and redundances.
 
-## what does the script do?
+## What Does this Script Do?
 
 Polls support tickets by open, close, high-priority and most-open=-customer. 
 This creates an overview, helps understand current status, spots ticket spike and zeros on customers with urgent need of attention.
