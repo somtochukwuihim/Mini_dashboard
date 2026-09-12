@@ -15,6 +15,12 @@ This project was created so as to demonstrate;
 Polls support tickets by `open`, `close`, `high priority` and `most-open-customer`. 
 This creates an overview, helps understand current status, spots ticket spike and zeros on customers with urgent need of attention.
 
+## How to run it
+
+```bash
+python mini_dashboard.py ./mini_dashboard_practice_file.json
+```
+
 ## Note on Changes Made Overtime to the Script
 
 1. Initial commit

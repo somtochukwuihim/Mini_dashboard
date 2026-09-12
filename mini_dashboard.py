@@ -1,15 +1,16 @@
 import json
 import os
+import sys
 
-#////////CHANGES MADE-[Code n+3]//////////
-# created the counter function to:
-# loop through the tickets and compare: key to matching value condition
-# Avoid repetitive code.
+#////////CHANGES MADE-[Code n+4]//////////
+# Imported sys
+# Used the .get() to imbibe defensive programing incase a key returns an empty value. 
+# This way it doesn't crash the script. Added the sys.arg command line tool to avoid hardcoding the file path into the script.
 
 def counter (tickets, key, value):
     count = 0
     for ticket in tickets:
-        if ticket.get(key, 'misising') == value:
+        if ticket.get(key, 'missing') == value:
             count += 1
     return count
 
@@ -18,8 +19,8 @@ def customer_with_most_open_ticket (tickets):
     highest_count  = 0
     winner = []
     for ticket in tickets:
-        customer = ticket['customer']
-        status = ticket['status']
+        customer = ticket.get('customer', 'missing')
+        status = ticket.get('status', 'missing')
         if status == 'open':
             most_open_ticket[customer] = most_open_ticket.get(customer, 0) + 1
         
@@ -30,6 +31,10 @@ def customer_with_most_open_ticket (tickets):
             
         elif count == highest_count:
            winner.append(customer)
+
+    else:
+        if not winner:
+            return "None", 0
     
     winner = ', '.join(winner)            
     return winner, highest_count
@@ -64,7 +69,11 @@ def print_dashboard (tickets=None):
         return 'Error: The file exists but does not contain valid JSON format.'
 
 
-        
+if __name__=='__main__':
+    if len(sys.argv)<2:
+        print('ERROR: Missing inputs')
+        print('Usage: python script.py <path_to_log_file>')
+        sys.exit()
 
-trial = print_dashboard ('mini_dashboard_practice_file.json')
-print (trial)
+tickets = sys.argv[1]
+print_dashboard (tickets)
