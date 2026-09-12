@@ -1,16 +1,20 @@
 
-# Welcome to My Json Parsing Journey
+# Welcome Stranger
 
 ## Why This Project
-The goal of this project is to put to practice all that I have learnt about parsing json files. So i created this `mini_dashboard` to simulate a file that a support engineer may have to parse.
 
+This project was created so as to demonstrate;
 
-Another goal is to practice committing to **Git** and **GitHub** and to document changes I make as a marker of my growth in using python, problem solving and all the things I am learning towards my support engineering path.
+1. my ability to automate repetitive task and by proxy reduce time to ticket resolution.
+1. to spot trends that can help prioritize tickets based on urgency
+1. build little processes that helps during troubleshooting.
+1. show my ability to write scripts and make them more efficient by finding and removing bugs and redundances.
 
-Over time I intend to improve this `mini_dashboard`. This changes will: 
-1. Show my growth level 
-2. point me to what next I should be improving,
-3. as well as serves as a documentation of how far I have come.
+## what does the script do?
+
+Polls support tickets by open, close, high-priority and most-open=-customer. 
+This creates an overview, helps understand current status, spots ticket spike and zeros on customers with urgent need of attention.
+
 
 Thank you for reading.
 
