@@ -3,22 +3,23 @@
 
 ## Why This Project
 
-This project was created so as to demonstrate;
+This project was created so as to demonstrate my ability as a support engineer to;
 
-1. my ability to automate repetitive task and by proxy reduce time to ticket resolution.
+1. to parse a `json` file.
+1. to automate repetitive task and by proxy reduce time to ticket resolution.
 1. to spot trends that can help prioritize tickets based on urgency
 1. build little processes that helps during troubleshooting.
-1. show my ability to write scripts and make them more efficient by finding and removing bugs and redundances.
+1. to write scripts and make them more efficient by finding and removing bugs and redundances.
 
 ## What Does This Script Do?
 
 Polls support tickets by `open`, `close`, `high priority` and `most-open-customer`. 
 This creates an overview, helps understand current status, spots ticket spike and zeros on customers with urgent need of attention.
 
-## How to run it
+## How to Run It
 
 ```bash
-python mini_dashboard.py ./mini_dashboard_practice_file.json
+python mini_dashboard.py ./mini_dashboard_practice_file.json > output.txt
 ```
 
 ## Note on Changes Made Overtime to the Script
@@ -31,6 +32,7 @@ python mini_dashboard.py ./mini_dashboard_practice_file.json
 5. Used the `.get()` to imbibe defensive programing incase a key returns an empty value. 
    This way it doesn't crash the script. 
    I also added the `sys.arg` command line tool to avoid hardcoding the file path into the script.
+6. Fixed bugs and made sure the error handling is responsive so the script doesn't crash.
 
 Thank you for reading.
 

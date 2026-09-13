@@ -2,10 +2,8 @@ import json
 import os
 import sys
 
-#////////CHANGES MADE-[Code n+4]//////////
-# Imported sys
-# Used the .get() to imbibe defensive programing incase a key returns an empty value. 
-# This way it doesn't crash the script. Added the sys.arg command line tool to avoid hardcoding the file path into the script.
+#////////CHANGES MADE-[Code n+5]//////////
+# Fixed bugs and made sure the error handling is responsive so the script doesn't crash
 
 def counter (tickets, key, value):
     count = 0
@@ -39,18 +37,21 @@ def customer_with_most_open_ticket (tickets):
     winner = ', '.join(winner)            
     return winner, highest_count
 
-def print_dashboard (tickets=None):
-    if tickets is None:
-        return 'Error: No file/file-path was provided to the function.'
+def print_dashboard (file_path):
     
-    if not os.path.exists(tickets):
-        raise FileNotFoundError ('Error: File does not exist') 
-    
-    if os.path.isdir(tickets):
-        return 'File only points to a directory'
+    if not os.path.exists(file_path):
+        print('Error: File does not exist')  
+        print('Check if the file name is correct')  
+        print('Also check if the file extension is correct')
+        print('If all is correct then make sure the file path is correct')
+        return " "   
+    if os.path.isdir(file_path):
+        print('File only points to a directory')
+        print('Add a file name to the path')
+        return " "
     
     try:
-        with open (tickets, 'r') as f:
+        with open (file_path, 'r') as f:
             ticket_holder =  json.load(f)
             tickets = ticket_holder
 
@@ -68,12 +69,11 @@ def print_dashboard (tickets=None):
     except json.JSONDecodeError:
         return 'Error: The file exists but does not contain valid JSON format.'
 
-
 if __name__=='__main__':
     if len(sys.argv)<2:
         print('ERROR: Missing inputs')
         print('Usage: python script.py <path_to_log_file>')
-        sys.exit()
+        sys.exit(1)
 
-tickets = sys.argv[1]
-print_dashboard (tickets)
+file_path = sys.argv[1]
+print_dashboard (file_path)
